@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77b36b2b-3738-4051-bc8e-b6e51f7807d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fordisapp/templates/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/board.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fordisapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fordisproject/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisproject/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fordisapp/templates/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fordisapp/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+            <state relative-caret-position="323">
+              <caret line="62" column="100" selection-start-line="62" selection-start-column="100" selection-end-line="62" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -43,15 +45,6 @@
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnacreate.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -103,6 +96,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="95" column="148" selection-start-line="95" selection-start-column="148" selection-end-line="95" selection-end-column="148" />
+              <folding>
+                <element signature="e#952#971#0" expanded="true" />
+                <element signature="e#1308#1325#0" expanded="true" />
+                <element signature="e#1934#1964#0" expanded="true" />
+                <element signature="e#2300#2342#0" expanded="true" />
+                <element signature="e#2459#2479#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/firstapp/templates/map.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
@@ -124,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fordisapp/templates/report.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="83" selection-start-line="83" selection-end-line="94" selection-end-column="9" />
+            <state relative-caret-position="828">
+              <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
               <folding>
                 <element signature="e#903#973#0" expanded="true" />
                 <element signature="e#1027#1048#0" expanded="true" />
@@ -217,9 +226,7 @@
         <option value="$PROJECT_DIR$/firstapp/views.py" />
         <option value="$PROJECT_DIR$/map/views.py" />
         <option value="$PROJECT_DIR$/fordisapp/templates/detail.html" />
-        <option value="$PROJECT_DIR$/fordisapp/templates/report.html" />
         <option value="$PROJECT_DIR$/fordisproject/templates/base2.html" />
-        <option value="$PROJECT_DIR$/fordisapp/templates/board.html" />
         <option value="$PROJECT_DIR$/fordisapp/templates/register.html" />
         <option value="$PROJECT_DIR$/qnaapp/models.py" />
         <option value="$PROJECT_DIR$/fordisapp/models.py" />
@@ -231,6 +238,8 @@
         <option value="$PROJECT_DIR$/firstapp/templates/map.html" />
         <option value="$PROJECT_DIR$/fordisapp/static/css/styles.css" />
         <option value="$PROJECT_DIR$/fordisproject/templates/base.html" />
+        <option value="$PROJECT_DIR$/fordisapp/templates/board.html" />
+        <option value="$PROJECT_DIR$/fordisapp/templates/report.html" />
         <option value="$PROJECT_DIR$/fordisapp/templates/index.html" />
       </list>
     </option>
@@ -275,13 +284,13 @@
             <path>
               <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
-              <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
+              <item name="fordisapp" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
               <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
@@ -399,10 +408,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="437" y="1" width="1486" height="1047" extended-state="0" />
+    <frame x="138" y="1" width="1785" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.15953039" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.13222668" />
       <window_info id="Favorites" order="1" sideWeight="0.5014006" side_tool="true" weight="0.28414097" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -413,8 +422,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32968238" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49723756" visible="true" weight="0.13910186" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50276244" side_tool="true" visible="true" weight="0.13910186" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49742416" visible="true" weight="0.22234392" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5025758" side_tool="true" visible="true" weight="0.22234392" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49965963" weight="0.32858709" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -704,20 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
-          <folding>
-            <element signature="e#952#971#0" expanded="true" />
-            <element signature="e#1308#1325#0" expanded="true" />
-            <element signature="e#1934#1964#0" expanded="true" />
-            <element signature="e#2300#2342#0" expanded="true" />
-            <element signature="e#2459#2479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnaboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
@@ -749,20 +744,6 @@
             <element signature="e#492#546#0" expanded="true" />
             <element signature="e#724#792#0" expanded="true" />
             <element signature="e#974#1010#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fordisapp/templates/report.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="83" selection-start-line="83" selection-end-line="94" selection-end-column="9" />
-          <folding>
-            <element signature="e#903#973#0" expanded="true" />
-            <element signature="e#1027#1048#0" expanded="true" />
-            <element signature="e#1422#1440#0" expanded="true" />
-            <element signature="e#2050#2098#0" expanded="true" />
-            <element signature="e#2593#2631#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -818,10 +799,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="95" column="148" selection-start-line="95" selection-start-column="148" selection-end-line="95" selection-end-column="148" />
+          <folding>
+            <element signature="e#952#971#0" expanded="true" />
+            <element signature="e#1308#1325#0" expanded="true" />
+            <element signature="e#1934#1964#0" expanded="true" />
+            <element signature="e#2300#2342#0" expanded="true" />
+            <element signature="e#2459#2479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fordisapp/templates/report.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+          <folding>
+            <element signature="e#903#973#0" expanded="true" />
+            <element signature="e#1027#1048#0" expanded="true" />
+            <element signature="e#1422#1440#0" expanded="true" />
+            <element signature="e#2050#2098#0" expanded="true" />
+            <element signature="e#2593#2631#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fordisapp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="34" column="44" lean-forward="true" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="44" />
+        <state relative-caret-position="323">
+          <caret line="62" column="100" selection-start-line="62" selection-start-column="100" selection-end-line="62" selection-end-column="100" />
         </state>
       </provider>
     </entry>
