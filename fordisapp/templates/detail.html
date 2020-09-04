@@ -1,0 +1,295 @@
+{% extends 'base2.html' %}
+
+{% block css %}
+    .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    .container2 {
+        margin-left: 55px;
+    }
+
+<!--    .c_article {-->
+<!--      width: auto;-->
+<!--      display: flex;-->
+<!--      align-items: center-->
+<!--    }-->
+
+
+<!--    .panel{-->
+<!--      display:inline-block;-->
+<!--      position:relative;-->
+<!--    }-->
+
+<!--    .btn-secondary{-->
+<!--      position:absolute;-->
+<!--      bottom:10px;-->
+<!--      right:10px;-->
+<!--    }-->
+
+<!--    .form-control{-->
+<!--      display:block;-->
+<!--    }-->
+
+{% endblock %}
+
+{% block content %}
+<!-- Board -->
+<section class="projects-section bg-light" id="board">
+<div class="container">
+<!--    <h4 class="display-4">게시글 상세</h4><hr>-->
+{% if btype == 'B' %}    <h4>{{ article.title }}</h4> {% endif %}
+
+    <div class="c_article">
+        <div>
+            <a href="#"><img class="image_section" width="100" src="{{ article.awriter.photo.url }}" alt="" /></a>
+        </div>
+        <div>
+            <div style="margin-bottom:2px; display: inline-block"><b>[{{ article.awriter.nickName }}]님</b><p style="display: inline-block; margin-bottom: 0;" class="text-muted">&nbsp;&nbsp;댓글: {{ article3.cmtcnt }} &nbsp;&nbsp;조회: {{ article.viewcnt }}</p></div>
+            <div>{{ article.updated_at }} &nbsp;&nbsp;<a href="mailto:{{ useremail }}">이메일보내기</a></div>
+        </div>
+    </div>
+     <!-- 게시글의 내용 -->
+{% if btype == 'R' %}
+    <div class="container" style="width:350px; height: 300px; margin:0px; display: inline-block;">
+
+  <br>
+<div class="container" style="width:363px; height: 500px; margin:0px; display: inline-block;">
+  <h4>{{ article.title }}</h4>
+  <div class="card" style="width:360px; ">
+    <img class="card-img-top" src="/static/media/{{ article.reportPhoto }}" alt="Card image" style="width:100%">
+    <div class="card-body">
+        <p class="card-text">위치: {{ article.reportAddress }}</p>
+    </div>
+  </div>
+  <br>
+</div>
+  <br>
+</div>
+{% endif %}
+
+    <div class="col" style="background-color:rgb(255, 242, 242); margin:10px; font-size:18px; padding: 5px; width:auto">{{ article.content }}<br><br></div>
+    <div align="right" style="margin-right:15px">
+<!--    수정과 삭제는 유저에 따로 보여 주고 안 보여 줌     -->
+{% if btype == 'R' %}
+    <a href="{% url 'report' %}#board" class="btn btn-warning">게시판 메인</a>
+{% else %}
+    <a href="{% url 'board' %}#board" class="btn btn-warning">게시판 메인</a>
+{% endif %}
+{% if article.awriter.userEmail == useremail %}
+    <a href="{% url 'update' btype article.pk %}" class="btn btn-secondary">게시글 수정</a>
+    <form action="{% url 'delete' btype article.pk %}" method="POST" class="d-inline">
+    {% csrf_token %}
+    <button class="btn btn-danger">삭제</button>
+    </form>
+{% endif %}
+  </div>
+    <hr>
+{% comment %} {{ article.comment_set.all }} {% endcomment %}
+{% comment %} article.comment_set.all == comments {% endcomment %}
+{% for comment in article.comment_set.all %}
+    <a id="movec_{{ comment.id }}"></a>
+    <!-- 1라인답글의 작성자 정보 -->
+    <div class="c_article">
+      <div>
+          <a href="#"><img class="image_section" width="100" src="{{ comment.cwriter.photo.url }}" alt="" /></a>
+      </div>
+      <div>
+          <div style="margin-bottom:2px; display: inline-block"><b>[{{ comment.cwriter.nickName }}]님</b><span style="color:red">{% if article.awriter == comment.cwriter %}(작성자){% endif %}</span></div>
+          <div>{{ comment.updated_at }}</div>
+      </div>
+    </div>
+     <!-- 1라인답글의 내용 -->
+     <div class="col" style="background-color:rgb(242, 243, 255); margin:10px; font-size:18px; padding: 5px; width:auto">{{ comment.content }}<br><br></div>
+
+
+{% if comment.cwriter.userEmail == useremail %}
+
+  <button style="float:right; margin-right:15px" class="btn btn-success" >수정</button>
+      <div class="panel">
+        <form action="{% url 'comment_update' btype article.pk comment.pk %}" method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+            <label for="content"></label>
+            <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required>{{ comment.content }}</textarea>
+            </div>
+          <button style="float:right;" class="btn btn-secondary">완료</button>
+        </form>
+      </div>
+
+
+    <form action="{% url 'comment_delete' btype article.pk comment.pk %}" method="POST" class="d-inline">
+        {% csrf_token %}
+        <button class="btn btn-danger" style=" margin-left:15px">삭제</button>
+    </form>
+{% endif %}
+  <button class="btn btn-primary">답글쓰기</button>
+      <div class="panel">
+        <form action="{% url 'comment2_create' btype article.pk comment.pk %}" method="POST">
+          {% comment %} create와 new를 합쳐서 get/post로 나눴었는데, 댓글은 이미 만들어져 있는 화면을 활용하는 것(like ajax) {% endcomment %}
+          {% csrf_token %}
+            <div class="form-group">
+            <label for="content"></label>
+            <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required></textarea>
+            </div>
+          <button style="float:right;" class="btn btn-secondary">완료</button>
+        </form>
+      </div>    <hr>
+
+                    <div class="container2">
+                    {% comment %} {{ comment.comment2_set.all }} {% endcomment %}
+                    {% comment %} comment.comment2_set.all == comments2 {% endcomment %}
+                    {% for comment2 in comment.comment2_set.all %}
+                        <a id="movec2_{{ comment2.id }}"></a>
+                        <!-- 2라인답글의 작성자 정보 -->
+                        <div class="c_article">
+                          <div>
+                            <img class="image_section" width="100" src="{{ comment2.c2writer.photo.url }}" alt="" /></a>
+                          </div>
+                          <div>
+                              <div id="comment2name" style="margin-bottom:2px; display: inline-block"><b>[{{ comment2.c2writer.nickName }}]님</b><span style="color:red">{% if article.awriter == comment2.c2writer %}(작성자){% endif %}</span></div>
+                              <div>{{ comment.updated_at }}</div>
+                          </div>
+                        </div>
+                        <!-- 2라인답글의 내용 -->
+                        <div class="col" style="background-color:rgb(255, 255, 242); margin:10px; font-size:18px; padding: 5px; width:auto">{{ comment2.content }}<br><br></div>
+
+                    {% if comment2.c2writer.userEmail == useremail %}
+
+
+                            <button style="float:right; margin-right:15px;" class="btn btn-success">수정</button>
+                              <div class="panel">
+                                <form action="{% url 'comment2_update' btype article.pk comment.pk comment2.pk %}" method="POST">
+                                  {% csrf_token %}
+                                    <div class="form-group">
+                                    <label for="content"></label>
+                                    <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required>{{ comment2.content }}</textarea>
+                                    </div>
+                                  <button style="float:right;" class="btn btn-secondary">완료</button>
+                                </form>
+                              </div>
+
+
+                        <form action="{% url 'comment2_delete' btype article.pk comment.pk comment2.pk%}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <button class="btn btn-danger"  style=" margin-left:15px">삭제</button>
+                        </form>
+                    {% endif %}
+                        <button class="btn btn-primary">답글쓰기</button>
+                        <div class="panel">
+                            <form action="{% url 'comment2_create' btype article.pk comment.pk %}" method="POST">
+                                {% comment %} create와 new를 합쳐서 get/post로 나눴었는데, 댓글은 이미 만들어져 있는 화면을 활용하는 것(like ajax) {% endcomment %}
+                                {% csrf_token %}
+                                <div class="form-group">
+                                <label for="content"></label>
+                                <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required>{{ comment2.c2writer.nickName }}님 : </textarea>
+                                </div>
+                                <button style="float:right;" class="btn btn-secondary">완료</button>
+                            </form>
+                        </div><hr>
+
+                    {% endfor %}
+                    </div>
+
+{% endfor %}
+<!--  <h4>댓글</h4>-->
+  <form action="{% url 'comment_create' btype article.pk %}" method="POST">
+    {% comment %} create와 new를 합쳐서 get/post로 나눴었는데, 댓글은 이미 만들어져 있는 화면을 활용하는 것(like ajax) {% endcomment %}
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="content"></label>
+    <textarea class="form-control" id="content" name="content" rows="5" placeholder="댓글을 남겨보세요." required></textarea>
+    </div>
+    <button style="float:right;" class="btn btn-secondary">완료</button>
+  </form>
+
+</div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+var acc = document.getElementsByClassName("btn btn-primary");
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      <!-- 수정쪽 창 지우기 -->
+      var pp = document.getElementsByClassName("btn btn-success");
+      var j;
+      for (j = 0; j < pp.length; j++) {
+              pp[j].classList.toggle("active");
+              var panel = pp[j].nextElementSibling;
+              panel.style.maxHeight = null;
+      }
+        var index = $('.btn-primary').index(this);
+        <!-- alert(index); -->
+        var ppp = document.getElementsByClassName("btn btn-primary");
+       ppp[index].classList.toggle("active");
+        var panel = ppp[index].nextElementSibling;
+        if (panel.style.maxHeight) {
+            var pp = document.getElementsByClassName("btn btn-primary");
+            var j;
+            for (j = 0; j < pp.length; j++) {
+                    pp[j].classList.toggle("active");
+                    var panel = pp[j].nextElementSibling;
+                    panel.style.maxHeight = null;
+            }
+
+        } else {
+            var pp = document.getElementsByClassName("btn btn-primary");
+            var j;
+            for (j = 0; j < pp.length; j++) {
+                    pp[j].classList.toggle("active");
+                    var panel = pp[j].nextElementSibling;
+                    if (j == index) {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    } else {
+                    panel.style.maxHeight = null;
+                }
+            }
+        }
+  });
+}
+
+var acc2 = document.getElementsByClassName("btn btn-success");
+for (i = 0; i < acc2.length; i++) {
+    acc2[i].addEventListener("click", function() {
+      <!-- 뎃글쪽 창 지우기 -->
+      var pp = document.getElementsByClassName("btn btn-primary");
+      var j;
+      for (j = 0; j < pp.length; j++) {
+              pp[j].classList.toggle("active");
+              var panel = pp[j].nextElementSibling;
+              panel.style.maxHeight = null;
+      }
+        var index = $('.btn-success').index(this);
+       <!-- alert(index); -->
+        var ppp = document.getElementsByClassName("btn btn-success");
+        ppp[index].classList.toggle("active");
+        var panel = ppp[index].nextElementSibling;
+        if (panel.style.maxHeight) {
+            var pp = document.getElementsByClassName("btn btn-success");
+            var j;
+            for (j = 0; j < pp.length; j++) {
+                    pp[j].classList.toggle("active");
+                    var panel = pp[j].nextElementSibling;
+                    panel.style.maxHeight = null;
+            }
+
+        } else {
+            var pp = document.getElementsByClassName("btn btn-success");
+            var j;
+            for (j = 0; j < pp.length; j++) {
+                    pp[j].classList.toggle("active");
+                    var panel = pp[j].nextElementSibling;
+                    if (j == index) {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                    } else {
+                    panel.style.maxHeight = null;
+                }
+            }
+        }
+  });
+}
+{% endblock %}

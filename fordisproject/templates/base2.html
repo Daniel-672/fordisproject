@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+
+         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+       integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+       crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+       integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+       crossorigin=""></script>
+
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5ec10d014203093624d4255f9a3c6042&libraries=services"></script>
+<!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block title %}{% endblock %}</title>
+
+
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/css/styles.css" rel="stylesheet" />
+
+        <style>
+        .masthead2 {
+          position: relative;
+          width: 100%;
+          height: 10px;
+          min-height: 35rem;
+          padding: 15rem 0;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/static/assets/img/bg-masthead2.jpg");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-size: cover;
+        }
+        .image_section {
+            margin-right: 4px;
+            object-fit: cover;
+            object-position: top; /*정사각형이 아니라 직사각형일 경우 원 안에 보여지게 할 중심 이미지의 위치를 지정*/
+            border-radius: 50%;/*사각형의 모서리 둥근 정도를 지정하는 속성인데 50%를 지정하면 완전한 원이 됨*/
+            width: 50px;
+            height: 50px;
+        }
+        .image_section_float {
+            object-fit: cover;
+            object-position: top; /*정사각형이 아니라 직사각형일 경우 원 안에 보여지게 할 중심 이미지의 위치를 지정*/
+            border-radius: 3%;/*사각형의 모서리 둥근 정도를 지정하는 속성인데 50%를 지정하면 완전한 원이 됨*/
+            width: 50px;
+            height: 50px;
+        }
+        /* Mobile 긴급전화 */
+        .floBanMob1 {
+          position: fixed;
+          bottom: 130px; /* 아래 끝에서부터의 거리 */
+          right: 15px; /* 오른쪽 끝에서부터의 거리 */
+          z-index: 99;
+        }
+        /* Mobile 긴급문자 */
+        .floBanMob2 {
+          position: fixed;
+          bottom: 80px; /* 아래 끝에서부터의 거리 */
+          right: 15px; /* 오른쪽 끝에서부터의 거리 */
+          z-index: 99;
+        }
+
+{% block css %}
+
+{% endblock %}
+        </style>
+</head>
+
+<body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container">
+        {% if loginyn  %}
+                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'logout' %}">logout</a>
+                <img class="image_section" width="50" src="{{ photopath }}" alt="" />Hi {{nickname}}
+        {% else %}
+                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'login' %}">login</a>
+        {% endif %}
+<!--                <a class="navbar-brand js-scroll-trigger-center" href="#page-top"></a>-->
+                <a class="navbar-brand js-scroll-trigger-center" style="margin-left:20px;" href="{% url 'index' %}">Home</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'index' %}#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'report' %}#board">신고</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'mapping' %}#board">시설</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'mymap' %}#board">편의</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'board' %}#board">게시판</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'qnaread' %}#board">Q&A</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'index' %}#signup">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead2-->
+        <header class="masthead2">
+        <!--    <div class="container d-flex h-100 align-items-center">-->
+        <!--        <div class="mx-auto text-center">-->
+        <!--            <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>-->
+        <!--            <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>-->
+        <!--            <a class="btn btn-primary js-scroll-trigger" href="#about">Get Started</a>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        </header>
+    {% block content %}
+
+    {% endblock %}
+        <br>
+        <!-- Footer-->
+        <footer class="footer bg-black small text-center text-white-50"><div class="container">Copyright ⓒ Your 에러업조 2020</div></footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/js/scripts.js"></script>
+
+{% if loginyn  %}
+<!-- 플로팅 배너 버튼 HTML 표시 -->
+        <!-- Mobile 긴급전화 -->
+        <div class="floBanMob1 hidden-lg">
+         <a href="tel:{{ guardianCallNum }}">
+              <img class="image_section_float" width="100" src="/static/assets/img/callphone2.png" >
+          </a>
+        </div>
+        <!-- Mobile 긴급문자 -->
+        <div class="floBanMob2 hidden-lg">
+          <a href="sms:{{ guardianCallNum }}?body={{ guardianName }}님!%0a{{guardianBasicMsg}}">
+            <img class="image_section_float" width="100" src="/static/assets/img/sendtext.png" >
+          </a>
+        </div>
+{% endif %}
+</body>
+
+
+<script>
+{% block javascript %}
+{% endblock %}
+</script>
+
+</html>

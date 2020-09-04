@@ -1,0 +1,118 @@
+{% extends 'base2.html' %}
+{% block css %}
+
+{% endblock %}
+{% block content %}
+<!-- Board -->
+<section class="projects-section bg-light" id="board">
+<div class="container">
+
+    <h1>{% if btype == 'B' %}게시판 글쓰기{% else %}신고하기{% endif %}</h1>
+    <form action="{% url 'create' btype %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="title">제목</label>
+        <input type="text" class="form-control" id="title"  placeholder="글 제목을 입력하세요." name="title" required>
+    </div>
+    <div class="form-group">
+        <label for="content">내용:</label>
+        <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required></textarea>
+    </div>
+
+{% if btype == 'R' %}
+    <div class="form-group">
+        <label for="reportphoto">불법 주차 위반 차량 사진 (핸드폰 사용 시 사진촬영 가능)</label>
+        <input type="file" class="form-control" id="reportphoto"  capture="camera" placeholder="모바일에선 카메라가 동작" accept="image/*" name="reportphoto"  required><br>
+        <img id="image_section"  width="300" src="/static/assets/img/dispark.png" alt="your image"/>
+    </div>
+
+    <div class="form-group">
+        <label for="content">불법 주차 위반 차량 위치</label> <button class="btn btn-primary" type="button" onclick="callposi()">주소가져오기</button>
+        <h5 id="target">location</h5>
+        <input  class="form-control" type="hidden" id="reportlati"  name="reportlati" >
+        <input  class="form-control" type="hidden" id="reportlong"  name="reportlong" >
+
+        <textarea class="form-control" id="reportaddress" name="reportaddress" rows="1" placeholder="위치 정보를 입력하세요." required></textarea>
+    </div>
+{% endif %}
+
+  <button type="submit" class="btn btn-primary">작성</button>
+</form>
+
+</div>
+</section>
+
+{% endblock %}
+
+{% block javascript %}
+$(document).ready(function () {
+    $('html, body').animate({
+        scrollTop: $('#board').offset().top
+    }, 'fast'); //slow
+});
+
+
+<!--사진 선택 시 화면에 보여주기-->
+function readURL(input) {
+ if (input.files && input.files[0]) {
+  var reader = new FileReader();
+
+  reader.onload = function (e) {
+   $('#image_section').attr('src', e.target.result);
+  }
+
+  reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#reportphoto").change(function(){
+   readURL(this);
+});
+
+
+<!--위경도 가져오기-->
+function callposi(){
+    // BOM의 navigator객체의 하위에 geolocation객체가 새로 추가되었음.
+    window.navigator.geolocation.getCurrentPosition( function(position){ //OK
+        var lat= position.coords.latitude;
+        var lng= position.coords.longitude;
+
+        document.getElementById('target').innerHTML="위경도: "+lat+", "+lng;
+        document.getElementById('reportlati').value=lat;
+        document.getElementById('reportlong').value=lng;
+
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    var coord = new kakao.maps.LatLng(lat, lng);
+
+    var callback = function(result, status) {
+        if (status === kakao.maps.services.Status.OK) {
+            var contentText = document.getElementById('reportaddress');
+                contentText.innerHTML = result[0].address.address_name
+    }
+};
+
+geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+
+    } ,
+    function(error){ //error
+        switch(error.code){
+            case error.PERMISSION_DENIED:
+                str="사용자 거부";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                str="지리정보 없음";
+                break;
+            case error.TIMEOUT:
+                str="시간 초과";
+                break;
+            case error.UNKNOWN_ERROR:
+                str="알수없는 에러";
+                break;
+        }
+        document.getElementById('target').innerHTML=str;
+    });
+
+}
+
+{% endblock %}

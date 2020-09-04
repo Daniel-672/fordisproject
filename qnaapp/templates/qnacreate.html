@@ -1,0 +1,53 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="projects-section bg-light" id="board">
+<div class="container">
+
+    <h1><br> Q & A 작성 </br></h1>
+
+    <div class="container p-3 my-3 border">
+        <ul>
+            <li>개인정보를 포함하여 게시하는 경우 개인정보가 악용되어 사용될 수 있으니 주의바랍니다.</li>
+            <li>본 게시판과 관련이 없는 내용의 글은 관리자에 의해 삭제될 수 있습니다.</li>
+        </ul>
+    </div>
+
+    <br>
+    <div>
+        <form style = "text-align: left" method="post" action="{% url 'qnacreate' %}">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" class="form-control" id="title"  placeholder="글 제목을 입력하세요." name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">내용:</label>
+                    <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required></textarea>
+                </div>
+                    <button type="submit" class="btn btn-primary" value="Submit">등록</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'qnaread' %}'">목록</button>
+        </form>
+    </div>
+</div>
+</section>
+{% endblock %}
+
+{% block css %}
+
+        .masthead2 {
+          position: relative;
+          width: 100%;
+          height: 10px;
+          min-height: 35rem;
+          padding: 15rem 0;
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/static/assets/img/inclusion-Q&A.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-size: cover;
+        }
+
+{% endblock %}

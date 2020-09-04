@@ -1,0 +1,166 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+{% block title %}{% endblock %}
+    <br>
+    <h2 id="mytitle" style="color:#467370";><b>전동휠체어 충전소 & 장애인 화장실 위치 정보</b></h2>
+    <br>
+    <div id="container">
+        <button type="submit" id="washmap" class="btn btn-light" style="font-size :15px; width: 220px; color: #446f6b;">
+            <img src="http://maps.google.com/mapfiles/ms/micons/toilets.png"> 장애인 화장실 찾기</button>
+        <button type="submit" id="wheelchair" class="btn btn-light" style="font-size : 14px; width:240px; color: #446f6b;">
+            <img src="http://maps.google.com/mapfiles/ms/icons/wheel_chair_accessible.png"> 전동휠체어 충전소 찾기</button>
+        <button id="reset" type="reset" class="btn btn-light" style="font-size : 15px; width: 220px; height:48px; color: #446f6b;">
+            <img src="http://maps.google.com/mapfiles/ms/micons/caution.png"> 새로고침</button><br>
+    </div><br>
+    <p id="demo"><b>해당 위치의 정보를 보여드립니다.</b></p><br>
+    <div id="map" style="width: 680px; height: 400px;"></div>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyA5BlqMmVTyp5F06gdGS9rHkr_McFdrI_c"></script>
+{% endblock %}
+
+{% block javascript %}
+
+    //지도 생성, 처음 띄웠을 때 위치(center)
+    var map = new google.maps.Map(document.getElementById('map'), {
+		zoom: 15,
+		center: new google.maps.LatLng(37.509594, 127.055509),
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+		marker = new google.maps.Marker({
+		position: new google.maps.LatLng(37.509594, 127.055509),
+		map: map,
+		animation:google.maps.Animation.DROP,
+		icon: 'http://maps.google.com/mapfiles/ms/micons/red-pushpin.png'
+	});
+
+		var infowindow = new google.maps.InfoWindow();
+		google.maps.event.addListener(marker, 'click', (function(marker) {
+		return function() {
+			infowindow.setContent('멀티캠퍼스 교육장(SAC 아트홀) 입니다.');
+			infowindow.open(map, marker);
+		}
+	})(marker));
+
+    //보여줄 icon(마커) url. 각각 휠체어, 화장실 순서
+    var icon = 'http://maps.google.com/mapfiles/ms/icons/wheel_chair_accessible.png';
+    var icon1 = 'http://maps.google.com/mapfiles/ms/micons/toilets.png';
+
+	// 전동휠체어 찾기 버튼 클릭했을 때,
+	$('#wheelchair').click(function(k){
+		$.getJSON("{% url 'w_map' %}?w_map="+k, function(jsonObj){
+			var length = jsonObj.w_map_location.length;
+			var w_map_x = 0;
+			var w_map_y = 0;
+			for(var i=0; i < length; i++){
+				w_map_location = jsonObj.w_map_location[i];
+				w_map_tel = jsonObj.w_map_tel[i];
+				w_map_x = parseFloat(jsonObj.w_map_x[i]);
+				w_map_y = parseFloat(jsonObj.w_map_y[i]);
+				w_map_info = jsonObj.w_map_info[i];
+			marker = new google.maps.Marker({
+				id:i,
+				position: new google.maps.LatLng(w_map_y, w_map_x),
+				map: map,
+				icon:icon,
+				title:w_map_location
+			});
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+				var x=document.getElementById("demo");
+				x.innerHTML= '<b>주소: '+jsonObj.w_map_location[i]+'<br>전화번호: '+jsonObj.w_map_tel[i]+'<br>추가정보: '+jsonObj.w_map_info[i]+'</b>';
+				};
+            })(marker, i));
+            var infowindow = new google.maps.InfoWindow();
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+				return function() {
+				infowindow.setContent('주소: '+jsonObj.w_map_location[i]+'<br>전화번호: '+jsonObj.w_map_tel[i]+'<br>추가정보: '+jsonObj.w_map_info[i]);
+				infowindow.open(map, marker);
+            }
+            })(marker, i));
+
+            // 마커를 클릭했을 때 줌 이벤트
+            if(marker) {
+				marker.addListener('click', function() {
+				map.setZoom(16);
+				map.setCenter(this.getPosition());
+            });
+			}
+            }
+		});
+    });
+
+   $('#washmap').click(function(k){
+        $.getJSON("{% url 'washmap' %}?washmap="+k, function(jsonObj){
+			var length = jsonObj.washmap_x.length;
+			var washmap_x = 0;
+			var washmap_y = 0;
+			for(var i=0; i < length; i++){
+				washmap_location = jsonObj.washmap_location[i];
+				washmap_x = parseFloat(jsonObj.washmap_x[i]);
+				washmap_y = parseFloat(jsonObj.washmap_y[i]);
+			marker1 = new google.maps.Marker({
+				id:i,
+				position: new google.maps.LatLng(washmap_y, washmap_x),
+				map: map,
+				icon:icon1,
+				title:washmap_location
+			});
+			google.maps.event.addListener(marker1, 'click', (function(marker1, i) {
+				return function() {
+				var x=document.getElementById("demo");
+				x.innerHTML= '<b>주소: '+jsonObj.washmap_location[i]+'</b>';
+			};
+			})(marker1, i));
+			var infowindow = new google.maps.InfoWindow();
+			google.maps.event.addListener(marker1, 'click', (function(marker1, i) {
+				return function() {
+				infowindow.setContent('주소: '+jsonObj.washmap_location[i]);
+				infowindow.open(map, marker1);
+			}
+			})(marker1, i));
+
+            if(marker1) {
+				marker1.addListener('click', function() {
+				map.setZoom(16);
+				map.setCenter(this.getPosition());
+            });
+            }
+		}
+		});
+	});
+
+	//지도에 표시된 마커를 모두 지우고 지도만 보여줌.
+	$('#reset').click(function (){
+		location.reload();
+	});
+
+{% endblock %}
+
+{% block css %}
+    #container, #mytitle, #map, #demo {
+    margin: auto;
+    text-align: center;
+    }
+
+    .gmnoprint, .gm-control-active.gm-fullscreen-control {
+    display: none;
+    }
+
+
+	.masthead2 {
+		position: relative;
+		width: 100%;
+		height: 10px;
+		min-height: 35rem;
+		padding: 15rem 0;
+		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/static/assets/img/disabledtoilet.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment: scroll;
+		background-size: cover;
+	}
+
+
+{% endblock %}
+

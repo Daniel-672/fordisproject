@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Google Maps Multiple Markers</title>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"
+          type="text/javascript"></script>
+<div id="map" style="width: 500px; height: 400px;"></div>
+</html>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(37.549012, 126.988546),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var positions = [];
+    var i, marker ;
+
+    $.ajax({
+        url: "{% url 'getApi' %}",
+        dataType: "Json",
+        success: function (data) {
+            for (i = 0; i < data.length; i++) {
+            marker = new google.maps.Marker({
+                id:i,
+                positions: new google.maps.LatLng(data[i].fields.y, data[i].fields.x),
+                map:map,
+            });
+            }
+        },
+        error: function (request, status, error) {
+            console.log('실패');
+        },
+        async: false
+
+    });
+
+    var imageSrc = "static/images/Map-Pin.png"
+
+</script>
+
+
+<!--                location: data[i].fields.location,-->
+<!--                info: data[i].fields.info,-->
+<!--                tel: data[i].fields.tel,-->
