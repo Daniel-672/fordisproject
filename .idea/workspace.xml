@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77b36b2b-3738-4051-bc8e-b6e51f7807d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fordisapp/templates/board.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fordisapp/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fordisapp/templates/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/fordisapp/templates/report.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
