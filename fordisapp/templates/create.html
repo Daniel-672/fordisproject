@@ -89,10 +89,10 @@ function callposi(){
         if (status === kakao.maps.services.Status.OK) {
             var contentText = document.getElementById('reportaddress');
                 contentText.innerHTML = result[0].address.address_name
-    }
-};
+        }
+    };
 
-geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+    geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
 
     } ,
     function(error){ //error
