@@ -3,6 +3,63 @@
   <component name="ChangeListManager">
     <list default="true" id="77b36b2b-3738-4051-bc8e-b6e51f7807d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/3com.com_DJAooSH.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/5hotmail.com.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_35KWFv7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_5RWf2OK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_5oEytlf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_CcZmqGx.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_IfCTlJs.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_MifUUgK.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_Njg65Xc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_Yl99cbT.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_btRhREm.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_f0m7nbJ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_gSXSIla.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_jWICyE3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_mpkMLni.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_o8F5N0K.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_pIZ3BdM.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_s3k8Poo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_vUmyKnB.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_vnndvXf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_wVAolrn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_wdvFksz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/None_xeTPO13.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/kim672772hotmail.com_CgyAGyW.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/kim672772hotmail.com_OLOSdJ5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/photo/kim672772hotmail.com_ONtVPl9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T145900.874587.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T150949.692724.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T152935.898099.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T155247.499886.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T155305.195303.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.com2020-09-01T155959.324422.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/1com.comNone.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/5414343095257594877.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/None.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/None_kAaZeC6.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T161146.425934.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T161248.530915.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T161253.287902.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T165913.842909.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T170317.807463.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T171249.194015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T173335.445979.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-01T220741.328667.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-02T155924.753137.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-03T120536.961566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-03T120612.049694.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-03T173648.159325.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-03T222115.596679.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T013044.691167.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T013107.598901.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T020532.916622.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T025642.079671.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T030111.905949.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T085627.093347.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/media/report/kim672772hotmail.com2020-09-04T094014.818934.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +72,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fordisapp/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="62" column="100" selection-start-line="62" selection-start-column="100" selection-end-line="62" selection-end-column="100" />
+            <state relative-caret-position="1425">
+              <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnaboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1520">
+              <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/qnaapp/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#69#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/qnaapp/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,15 +136,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnadetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="95" selection-start-line="95" selection-end-line="110" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fordisproject/templates/base2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="567">
@@ -76,25 +157,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/map/templates/mapservice.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="163" selection-start-line="163" selection-end-line="163" />
-              <folding>
-                <element signature="e#110#131#0" expanded="true" />
-                <element signature="e#270#324#0" expanded="true" />
-                <element signature="e#492#546#0" expanded="true" />
-                <element signature="e#724#792#0" expanded="true" />
-                <element signature="e#974#1010#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
+            <state relative-caret-position="315">
               <caret line="95" column="148" selection-start-line="95" selection-start-column="148" selection-end-line="95" selection-end-column="148" />
               <folding>
                 <element signature="e#952#971#0" expanded="true" />
@@ -108,29 +173,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/firstapp/templates/map.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-              <folding>
-                <element signature="e#1640#1667#0" expanded="true" />
-                <element signature="e#1716#1752#0" expanded="true" />
-                <element signature="e#1982#2003#0" expanded="true" />
-                <element signature="e#2230#2251#0" expanded="true" />
-                <element signature="e#2481#2502#0" expanded="true" />
-                <element signature="e#2799#2835#0" expanded="true" />
-                <element signature="e#3763#3769#1" expanded="true" />
-                <element signature="e#4278#4284#1" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fordisapp/templates/report.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="828">
-              <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+              <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
               <folding>
                 <element signature="e#903#973#0" expanded="true" />
                 <element signature="e#1027#1048#0" expanded="true" />
@@ -226,7 +272,6 @@
         <option value="$PROJECT_DIR$/fordisapp/templates/register.html" />
         <option value="$PROJECT_DIR$/qnaapp/models.py" />
         <option value="$PROJECT_DIR$/fordisapp/models.py" />
-        <option value="$PROJECT_DIR$/qnaapp/views.py" />
         <option value="$PROJECT_DIR$/qnaapp/templates/qnaboard.html" />
         <option value="$PROJECT_DIR$/qnaapp/templates/qnacreate.html" />
         <option value="$PROJECT_DIR$/qnaapp/templates/qnadetail.html" />
@@ -237,12 +282,13 @@
         <option value="$PROJECT_DIR$/fordisapp/templates/board.html" />
         <option value="$PROJECT_DIR$/fordisapp/templates/report.html" />
         <option value="$PROJECT_DIR$/fordisapp/templates/index.html" />
+        <option value="$PROJECT_DIR$/qnaapp/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="138" />
-    <option name="y" value="1" />
+    <option name="x" value="878" />
+    <option name="y" value="22" />
     <option name="width" value="1785" />
     <option name="height" value="1047" />
   </component>
@@ -297,6 +343,17 @@
               <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
               <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
               <item name="map" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
+              <item name="qnaapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fordisproject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fordisproject" type="462c0819:PsiDirectoryNode" />
+              <item name="qnaapp" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -404,8 +461,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="138" y="1" width="1785" height="1047" extended-state="0" />
-    <editor active="true" />
+    <frame x="878" y="22" width="1785" height="1047" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859944" visible="true" weight="0.13222668" />
       <window_info id="Favorites" order="1" sideWeight="0.5014006" side_tool="true" weight="0.28414097" />
@@ -574,16 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qnaapp/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firstapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -689,16 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qnaapp/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
-          <folding>
-            <element signature="e#0#69#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/map/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -706,13 +742,6 @@
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnaboard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -795,24 +824,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="95" column="148" selection-start-line="95" selection-start-column="148" selection-end-line="95" selection-end-column="148" />
-          <folding>
-            <element signature="e#952#971#0" expanded="true" />
-            <element signature="e#1308#1325#0" expanded="true" />
-            <element signature="e#1934#1964#0" expanded="true" />
-            <element signature="e#2300#2342#0" expanded="true" />
-            <element signature="e#2459#2479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fordisapp/templates/report.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
-          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+          <caret line="108" column="14" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
           <folding>
             <element signature="e#903#973#0" expanded="true" />
             <element signature="e#1027#1048#0" expanded="true" />
@@ -825,8 +840,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fordisapp/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="62" column="100" selection-start-line="62" selection-start-column="100" selection-end-line="62" selection-end-column="100" />
+        <state relative-caret-position="1425">
+          <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qnaapp/templates/qnaboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1520">
+          <caret line="80" column="14" selection-start-line="80" selection-start-column="14" selection-end-line="80" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qnaapp/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="44" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fordisapp/templates/board.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="95" column="148" selection-start-line="95" selection-start-column="148" selection-end-line="95" selection-end-column="148" />
+          <folding>
+            <element signature="e#952#971#0" expanded="true" />
+            <element signature="e#1308#1325#0" expanded="true" />
+            <element signature="e#1934#1964#0" expanded="true" />
+            <element signature="e#2300#2342#0" expanded="true" />
+            <element signature="e#2459#2479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qnaapp/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#69#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
