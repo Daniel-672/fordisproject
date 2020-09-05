@@ -87,10 +87,10 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
         {% if loginyn  %}
-                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'logout' %}">logout</a>
+                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'logout' %}#board">logout</a>
                 <img class="image_section" width="50" src="{{ photopath }}" alt="" />Hi {{nickname}}
         {% else %}
-                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'login' %}">login</a>
+                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'login' %}#board">login</a>
         {% endif %}
 <!--                <a class="navbar-brand js-scroll-trigger-center" href="#page-top"></a>-->
                 <a class="navbar-brand js-scroll-trigger-center" style="margin-left:20px;" href="{% url 'index' %}">Home</a>
@@ -102,7 +102,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'index' %}#about">About</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'report' %}#board">신고</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'mapping' %}#board">시설</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'mapping' %}">시설</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'mymap' %}#board">편의</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'board' %}#board">게시판</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'qnaread' %}#board">Q&A</a></li>

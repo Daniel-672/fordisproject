@@ -1,6 +1,6 @@
 {% extends "base2.html" %}
 {% block content %}
-<div class="container">
+<div class="container" id="board">
 {% if msg  %}
     <div class="row mt-5">
         <div class="col-12 text-center">
@@ -20,7 +20,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-12">
-            <form method="POST" action="{% url 'login'%}">
+            <form method="POST" action="{% url 'login'%}#board">
               {% csrf_token %}
               <div class="form-group">
                   <label for="userEmail">사용자 아이디</label>
@@ -37,7 +37,7 @@
 {% endif %}
 <div class="col-12 text-center">
 <!--    <a href="{% url 'index' %}">메인화면으로</a>-->
-    <a href="{% url 'register' %}">회원가입으로</a>
+    <a href="{% url 'register' %}#board">회원가입으로</a>
 </div>
 </div>
 {% endblock %}

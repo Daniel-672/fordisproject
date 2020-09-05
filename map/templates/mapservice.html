@@ -135,6 +135,13 @@
 		location.reload();
 	});
 
+	<!-- render는 javascript로 처리 -->
+	$(document).ready(function () {
+	$('html, body').animate({
+	scrollTop: $('#mytitle').offset().top
+	}, 'slow');
+	});
+
 {% endblock %}
 
 {% block css %}

@@ -111,6 +111,7 @@
 {% block content %}
 {% block title %}
 {% endblock %}
+<section class="projects-section bg-light" id="board">
     <br>
     <h1 style="text-align: center;">장애인을 위한 시설 찾기</h1>
     <br>
@@ -147,6 +148,7 @@
     <p id="resetbutton"><button type="reset" id="reset">다시찾기</button></p>
     <br>
     <div id="info" style="width: 800px; height: 200px;" ></div>
+</section>
 {% endblock %}
 
 
@@ -410,6 +412,12 @@
         location.reload();
     });
 
+    <!-- render는 javascript로 처리 -->
+    $(document).ready(function () {
+    $('html, body').animate({
+    scrollTop: $('#board').offset().top
+    }, 'slow');
+    });
     {% endblock %}
 
 

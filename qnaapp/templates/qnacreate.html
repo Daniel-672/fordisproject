@@ -17,7 +17,7 @@
 
     <br>
     <div>
-        <form style = "text-align: left" method="post" action="{% url 'qnacreate' %}">
+        <form style = "text-align: left" method="post" action="{% url 'qnacreate' %}#board">
             {% csrf_token %}
                 <div class="form-group">
                     <label for="title">제목</label>
@@ -28,7 +28,7 @@
                     <textarea class="form-control" id="content" name="content" rows="5" placeholder="내용을 입력해 주세요." required></textarea>
                 </div>
                     <button type="submit" class="btn btn-primary" value="Submit">등록</button>
-                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'qnaread' %}'">목록</button>
+                    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'qnaread' %}#board'">목록</button>
         </form>
     </div>
 </div>

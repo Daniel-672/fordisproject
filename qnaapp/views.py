@@ -1,5 +1,5 @@
 from django.contrib.auth.hashers import make_password, check_password
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, resolve_url
 from django.core.paginator import Paginator
 
 # Create your views here.
@@ -35,7 +35,8 @@ def qnacreate(request):
         #tmpuser = Users.objects.get(userEmail='syj0510@naver.com')
         #qnadata = Qnaboard(title=title, nickName=nickName, content=content, qnawriter=tmpuser)
         qnadata.save()
-        return redirect("qnaread")
+        #return redirect("qnaread")
+        return redirect('{}#{}'.format(resolve_url('qnaread'), 'board'))
     else:
         return render(request, 'qnacreate.html', logincheck(request))
 

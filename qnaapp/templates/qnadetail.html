@@ -34,7 +34,7 @@
     </div>
 
 
-    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'qnaread' %}'">목록</button>
+    <button type="button" class="btn btn-primary" onclick="location.href='{% url 'qnaread' %}#board'">목록</button>
 
     <hr style="2px;">
     <br>
@@ -87,6 +87,14 @@ $( function() {
     $('#target #head').click(function(e){
         e.preventDefault();
         $(this).closest('div').find('.content').not(':animated').slideToggle();
+    });
+
+    <!-- render는 javascript로 처리 -->
+
+    $(document).ready(function () {
+    $('html, body').animate({
+    scrollTop: $('#board').offset().top
+    }, 'slow');
     });
 
 {% endblock %}
