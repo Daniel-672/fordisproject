@@ -117,31 +117,15 @@
     <br>
     <div id="mapid" style="width: 800px; height: 500px;"></div>
     <br>
-    <p class="buttons">
-        지역재활시설 찾기
-        <label class="switch">
-        <input type="checkbox"  id="switch1">
-        <span class="slider round"></span>
-        </label>
-        <p id="mapslider1"></p><p style="display:none;">ON</p>
-    </p>
-    <p class="buttons">
-        거주시설 찾기
-        <label class="switch">
-        <input type="checkbox" id="switch2">
-        <span class="slider round"></span>
-        </label>
-        <p id="mapslider2"></p><p style="display:none;">ON</p>
-    </p>
-    <p class="buttons">
-        직업재활시설 찾기
-        <label class="switch">
-        <input type="checkbox"  id="switch3">
-        <span class="slider round"></span>
-        </label>
-        <p id="mapslider3"></p><p style="display:none;">ON</p>
-    </p>
-    <hr>
+    <div style="text-align: center;">
+            <p style="text-align: center;">시설찾기</p>
+            <input type="checkbox" id="switch1" name="switch1"  />재활시설
+            <br>
+            <input type="checkbox" id="switch2" name="switch2"  />거주시설
+            <br>
+            <input type="checkbox" id="switch3" name="switch3"  />직업재활시설
+            <hr>
+    <div>
     <p id="locationmemo">위치정보를 추출하려면 실행 버튼을 클릭하세요:<br>(추출된 위치를 바탕으로 근처의 시설을 찾습니다)</p>
     <p id="yourlocation"><button onclick="getLocation()" >실행</button></p>
     <hr>
@@ -149,6 +133,7 @@
     <br>
     <div id="info" style="width: 800px; height: 200px;" ></div>
 </section>
+
 {% endblock %}
 
 
@@ -175,11 +160,66 @@
 	    iconSize: [32, 32]
 	});
 
+
+	var sahoe = L.layerGroup();
+    $.getJSON("{% url 'sahoe' %}", function(jsonObj){
+    listlen = jsonObj.sahoe_name.length;
+    var sahoe_lat = 0;
+    var sahoe_lng = 0;
+    for(var i=0; i < listlen; i++){
+        sahoe_lat = parseFloat(jsonObj.sahoe_lat[i]);
+        sahoe_lng = parseFloat(jsonObj.sahoe_lng[i])
+        sahoe_name = jsonObj.sahoe_name[i];
+        sahoe_addr = jsonObj.sahoe_addr[i];
+        sahoe_tel = jsonObj.sahoe_tel[i];
+        L.marker([sahoe_lat, sahoe_lng], {icon: myIcon_red}).addTo(sahoe)
+                .bindPopup(sahoe_name+"<br>"+sahoe_addr+"<br>"+sahoe_tel).openPopup()
+    };
+            mymap.setView([37.554163, 126.983248], 11);
+    });
+
+
+	var geoju = L.layerGroup();
+    $.getJSON("{% url 'geoju' %}", function(jsonObj){
+    var listlen = jsonObj.geoju_name.length;
+    var geoju_lat = 0;
+    var geoju_lng = 0;
+    for(var i=0; i < listlen; i++){
+        geoju_lat = parseFloat(jsonObj.geoju_lat[i]);
+        geoju_lng = parseFloat(jsonObj.geoju_lng[i])
+        geoju_name = jsonObj.geoju_name[i];
+        geoju_addr = jsonObj.geoju_addr[i];
+        geoju_tel = jsonObj.geoju_tel[i];
+        L.marker([geoju_lat, geoju_lng], {icon: myIcon_mint}).addTo(geoju)
+                .bindPopup(geoju_name+"<br>"+geoju_addr+"<br>"+geoju_tel).openPopup()
+        mymap.setView([37.554163, 126.983248], 11);
+    }
+    });
+
+    var job = L.layerGroup();
+    $.getJSON("{% url 'job' %}", function(jsonObj){
+    var listlen = jsonObj.job_name.length;
+    var job_lat = 0;
+    var job_lng = 0;
+    for(var i=0; i < listlen; i++){
+        job_lat = parseFloat(jsonObj.job_lat[i]);
+        job_lng = parseFloat(jsonObj.job_lng[i])
+        job_name = jsonObj.job_name[i];
+        job_addr = jsonObj.job_addr[i];
+        job_tel = jsonObj.job_tel[i];
+        L.marker([job_lat, job_lng], {icon: myIcon_yellow}).addTo(job)
+                .bindPopup(job_name+"<br>"+job_addr+"<br>"+job_tel).openPopup()
+        mymap.setView([37.554163, 126.983248], 11)
+    }
+    });
+
+
     mymap = L.map('mapid',{
         'center': [37.554163, 126.983248],
         'zoom': 12,
   	    'layers': [L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 			maxZoom: 18,
+
 			attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -188,13 +228,6 @@
             ]
         });
 
-    var mymap1 = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox.streets'
-	}).addTo(mymap);
 
     var popup = L.popup();
     var ct = L.popup();
@@ -251,107 +284,47 @@
     }
     mymap.on('click', onMapClick);
 
-    var sahoe = 0;
-    var check1 = $("#switch1");
-    check1.click(function(k){
-        var listlen = 0;
-	    $("#mapslider").toggle(k);
-        if(sahoe == 0){
-            sahoe = 1;
-            console.log(sahoe);
-            $.getJSON("{% url 'sahoe' %}?sahoe="+k, function(jsonObj){
-            listlen = jsonObj.sahoe_name.length;
-            var sahoe_lat = 0;
-            var sahoe_lng = 0;
 
-            for(var i=0; i < listlen; i++){
-                sahoe_lat = parseFloat(jsonObj.sahoe_lat[i]);
-                sahoe_lng = parseFloat(jsonObj.sahoe_lng[i])
-                sahoe_name = jsonObj.sahoe_name[i];
-                sahoe_addr = jsonObj.sahoe_addr[i];
-                sahoe_tel = jsonObj.sahoe_tel[i];
-                L.marker([sahoe_lat, sahoe_lng], {icon: myIcon_red}).addTo(mymap)
-                        .bindPopup(sahoe_name+"<br>"+sahoe_addr+"<br>"+sahoe_tel).openPopup()
-            };
-            mymap.setView([37.554163, 126.983248], 11);
-            });
+
+    var listlen = 0;
+
+    $("#switch1").click(function(){
+        if($(switch1).is(":checked")){
+            console.log($(switch1).is(":checked"));
+        mymap.addLayer(sahoe);
         }
         else{
-            sahoe = 0;
-            console.log(sahoe);
-            $.getJSON("{% url 'sahoe' %}?sahoe="+k, function(jsonObj){
-            listlen = jsonObj.sahoe_name.length;
-            var sahoe_lat = 0;
-            var sahoe_lng = 0;
-
-            for(var i=0; i < listlen; i++){
-                sahoe_lat = parseFloat(jsonObj.sahoe_lat[i]);
-                sahoe_lng = parseFloat(jsonObj.sahoe_lng[i])
-                sahoe_name = jsonObj.sahoe_name[i];
-                sahoe_addr = jsonObj.sahoe_addr[i];
-                sahoe_tel = jsonObj.sahoe_tel[i];
-                mymap.remove(L.marker([sahoe_lat, sahoe_lng], {icon: myIcon_red}));
-            };
-            mymap.setView([37.554163, 126.983248], 11);
-            });
+            console.log($(switch1).is(":checked"));
+        mymap.removeLayer(sahoe);
         }
     });
 
-    var geoju = 0;
-    var check2 = $("#switch2");
-    check2.click(function(p){
-        var listlen = 0;
-	    $("#mapslider").toggle(p);
-        if(geoju == 0){
-            geoju = 1;
-            console.log(geoju);
-            $.getJSON("{% url 'geoju' %}?geoju="+p, function(jsonObj){
-            var length = jsonObj.geoju_name.length;
-            var geoju_lat = 0;
-            var geoju_lng = 0;
-            for(var i=0; i < length; i++){
-                geoju_lat = parseFloat(jsonObj.geoju_lat[i]);
-                geoju_lng = parseFloat(jsonObj.geoju_lng[i])
-                geoju_name = jsonObj.geoju_name[i];
-                geoju_addr = jsonObj.geoju_addr[i];
-                geoju_tel = jsonObj.geoju_tel[i];
-                L.marker([geoju_lat, geoju_lng], {icon: myIcon_mint}).addTo(mymap)
-                        .bindPopup(geoju_name+"<br>"+geoju_addr+"<br>"+geoju_tel).openPopup()
-                mymap.setView([37.554163, 126.983248], 11)
-            }
-            });
-        };
+    $("#switch2").click(function(){
+        if($(switch2).is(":checked")){
+            console.log($(switch2).is(":checked"));
+        mymap.addLayer(geoju);
+        }
+        else{
+            console.log($(switch2).is(":checked"));
+        mymap.removeLayer(geoju);
+        }
     });
 
-    var job = 0;
-    var check3 = $("#switch3");
-    check3.click(function(n){
-        var listlen = 0;
-	    $("#mapslider").toggle(n);
-        if(job == 0){
-            job = 1;
-            console.log(job);
-            $.getJSON("{% url 'job' %}?job="+n, function(jsonObj){
-            var length = jsonObj.job_name.length;
-            var job_lat = 0;
-            var job_lng = 0;
-            for(var i=0; i < length; i++){
-                job_lat = parseFloat(jsonObj.job_lat[i]);
-                job_lng = parseFloat(jsonObj.job_lng[i])
-                job_name = jsonObj.job_name[i];
-                job_addr = jsonObj.job_addr[i];
-                job_tel = jsonObj.job_tel[i];
-                L.marker([job_lat, job_lng], {icon: myIcon_yellow}).addTo(mymap)
-                        .bindPopup(job_name+"<br>"+job_addr+"<br>"+job_tel).openPopup()
-                mymap.setView([37.554163, 126.983248], 11)
-            }
-            });
-        };
+    $("#switch3").click(function(){
+        if($(switch3).is(":checked")){
+            console.log($(switch3).is(":checked"));
+        mymap.addLayer(job);
+        }
+        else{
+            console.log($(switch3).is(":checked"));
+        mymap.removeLayer(job);
+        }
     });
 
 
 
-    var x=document.getElementById("demo");
+
+    var x=document.getElementById("locationmemo");
 	  function getLocation() {
          if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition,showError);
@@ -419,6 +392,4 @@
     }, 'slow');
     });
     {% endblock %}
-
-
 
