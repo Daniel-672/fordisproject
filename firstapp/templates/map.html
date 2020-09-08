@@ -106,6 +106,12 @@
 	font-size:15px;
 	font-weight:bold;
     }
+
+    @media screen and (max-width: 500px) {
+      div#mapid {
+        display: none;
+      }
+    }
 {% endblock %}
 
 {% block content %}
@@ -115,23 +121,42 @@
     <br>
     <h1 style="text-align: center;">장애인을 위한 시설 찾기</h1>
     <br>
-    <div id="mapid" style="width: 800px; height: 500px;"></div>
+    <div id="mapid" style="width: 800px; height: 450px;"></div>
     <br>
-    <div style="text-align: center;">
-            <p style="text-align: center;">시설찾기</p>
-            <input type="checkbox" id="switch1" name="switch1"  />재활시설
-            <br>
-            <input type="checkbox" id="switch2" name="switch2"  />거주시설
-            <br>
-            <input type="checkbox" id="switch3" name="switch3"  />직업재활시설
-            <hr>
-    <div>
-    <p id="locationmemo">위치정보를 추출하려면 실행 버튼을 클릭하세요:<br>(추출된 위치를 바탕으로 근처의 시설을 찾습니다)</p>
-    <p id="yourlocation"><button onclick="getLocation()" >실행</button></p>
+
+
+    <p class="buttons">
+        지역재활시설 찾기
+        <label class="switch">
+        <input type="checkbox"  id="switch1">
+        <span class="slider round"></span>
+        </label>
+        <p id="mapslider1"></p><p style="display:none;">ON</p>
+    </p>
+    <p class="buttons">
+        거주시설 찾기
+        <label class="switch">
+        <input type="checkbox" id="switch2">
+        <span class="slider round"></span>
+        </label>
+        <p id="mapslider2"></p><p style="display:none;">ON</p>
+    </p>
+    <p class="buttons">
+        직업재활시설 찾기
+        <label class="switch">
+        <input type="checkbox"  id="switch3">
+        <span class="slider round"></span>
+        </label>
+        <p id="mapslider3"></p><p style="display:none;">ON</p>
+    </p>
+
+    <p id="yourlocation"><button class="btn btn-primary" onclick="getLocation()" >현재위치보기</button><button class="btn btn-primary" style="margin-left: 10px" type="reset" id="reset">화면지우기</button></p>
+    <p id="locationmemo"></p>
+
     <hr>
-    <p id="resetbutton"><button type="reset" id="reset">다시찾기</button></p>
+    <p id="resetbutton"></p>
     <br>
-    <div id="info" style="width: 800px; height: 200px;" ></div>
+
 </section>
 
 {% endblock %}
@@ -156,7 +181,7 @@
 	});
 
 	var myIcon_purple = L.icon({
-	    iconUrl: 'http://maps.google.com/mapfiles/ms/micons/purle-dot.png',
+	    iconUrl: 'http://maps.google.com/mapfiles/ms/micons/green-dot.png',
 	    iconSize: [32, 32]
 	});
 
