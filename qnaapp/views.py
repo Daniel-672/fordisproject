@@ -26,76 +26,84 @@ def logincheck(request) :
 
 
 def qnacreate(request):
-    if request.method == 'POST':
-        title = request.POST['title']
-        content = request.POST['content']
-        #admin_content = request.POST['admin_content']
-        users = Users.objects.get(userEmail=request.session['user'])
-        qnadata = Qnaboard(title=title, content=content, qnawriter=users)
-        #tmpuser = Users.objects.get(userEmail='syj0510@naver.com')
-        #qnadata = Qnaboard(title=title, nickName=nickName, content=content, qnawriter=tmpuser)
-        qnadata.save()
-        #return redirect("qnaread")
-        return redirect('{}#{}'.format(resolve_url('qnaread'), 'board'))
+    if logincheck(request)['loginyn']:
+        if request.method == 'POST':
+            title = request.POST['title']
+            content = request.POST['content']
+            #admin_content = request.POST['admin_content']
+            users = Users.objects.get(userEmail=request.session['user'])
+            qnadata = Qnaboard(title=title, content=content, qnawriter=users)
+            #tmpuser = Users.objects.get(userEmail='syj0510@naver.com')
+            #qnadata = Qnaboard(title=title, nickName=nickName, content=content, qnawriter=tmpuser)
+            qnadata.save()
+            return redirect('{}#{}'.format(resolve_url('qnaread'), 'board'))
+        else:
+            return render(request, 'qnacreate.html', logincheck(request))
     else:
-        return render(request, 'qnacreate.html', logincheck(request))
-
+        return render(request, 'login.html', logincheck(request))
+    
 def admin_answer(request, pk):
-    admin = Qnaboard.objects.get(pk=pk)
-    if request.method == 'POST':
-       admin = Qnaboard.objects.get(pk=pk)
-       admin_content = request.POST['admin_content']
-       admin.admin_content = admin_content
-       admin.save()
-       return redirect('qnadetail', admin.pk)
+    if logincheck(request)['loginyn']:
+        admin = Qnaboard.objects.get(pk=pk)
+        if request.method == 'POST':
+           admin = Qnaboard.objects.get(pk=pk)
+           admin_content = request.POST['admin_content']
+           admin.admin_content = admin_content
+           admin.save()
+           return redirect('qnadetail', admin.pk)
+        else:
+           context = { 'admin': admin, "test":"test" }
+        return render(request, 'qnadetail.html', context)
     else:
-       context = { 'admin': admin, "test":"test" }
-    return render(request, 'qnadetail.html', context)
-
+        return render(request, 'login.html', logincheck(request))
 
 def qnaread(request):
-    page = request.GET.get('page', 1)
-    qnalist = Qnaboard.objects.all()
-    paginator = Paginator(qnalist[::-1], 5)
-    qnalistpage = paginator.get_page(page)
-    context = {"qnalist": qnalistpage}
-    context.update(logincheck(request))
-    return render(request, 'qnaboard.html', context)
-
+    if logincheck(request)['loginyn']:
+        page = request.GET.get('page', 1)
+        qnalist = Qnaboard.objects.all()
+        paginator = Paginator(qnalist[::-1], 5)
+        qnalistpage = paginator.get_page(page)
+        context = {"qnalist": qnalistpage}
+        context.update(logincheck(request))
+        return render(request, 'qnaboard.html', context)
+    else:
+        return render(request, 'login.html', logincheck(request))
 
 def qnadetail(request, pk):
-    qnaboard = Qnaboard.objects.get(pk=pk)
-    context = {"qnaboard": qnaboard,
-               "useremail":request.session['user'],
-                }
-    context.update(logincheck(request))
-    return render(request, 'qnadetail.html', context)
-
+    if logincheck(request)['loginyn']:
+        qnaboard = Qnaboard.objects.get(pk=pk)
+        context = {"qnaboard": qnaboard,
+                   "useremail":request.session['user'],
+                    }
+        context.update(logincheck(request))
+        return render(request, 'qnadetail.html', context)
+    else:
+        return render(request, 'login.html', logincheck(request))
 
 def qnaregister(request):
-    if request.method =='GET':
-        return render(request, 'qnaregister.html')
-    elif request.method == 'POST':
-        useremail = request.POST.get('useremail', None)
-        username = request.POST.get('username', None)
-        password = request.POST.get('password', None)
-        re_password = request.POST.get('re-password',None)
-        res_data = {}
-        if not (username and password and re_password and useremail):
-            res_data['error']='아이디 또는 패스워드를 입력해주세요.'
-        elif password != re_password:
-            res_data['error']='비밀번호가 다릅니다.'
-        else:
-            users = Users(
-                useremail=useremail,
-                username=username,
-                password=make_password(password)
-            )
-            users.save()
-
-            return redirect('qnalogin')
-
-        return render(request, 'qnaregister.html', res_data)
+        if request.method =='GET':
+            return render(request, 'qnaregister.html')
+        elif request.method == 'POST':
+            useremail = request.POST.get('useremail', None)
+            username = request.POST.get('username', None)
+            password = request.POST.get('password', None)
+            re_password = request.POST.get('re-password',None)
+            res_data = {}
+            if not (username and password and re_password and useremail):
+                res_data['error']='아이디 또는 패스워드를 입력해주세요.'
+            elif password != re_password:
+                res_data['error']='비밀번호가 다릅니다.'
+            else:
+                users = Users(
+                    useremail=useremail,
+                    username=username,
+                    password=make_password(password)
+                )
+                users.save()
+    
+                return redirect('qnalogin')
+    
+            return render(request, 'qnaregister.html', res_data)
 
 def qnalogin(request):
     context = None

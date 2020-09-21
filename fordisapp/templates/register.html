@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="col-12 text-center">
-            <a href="{% url 'index' %}#board">메인화면으로</a>
+            <a href="{% url 'index' %}">메인화면으로</a>
             </div>
      </div>
 
@@ -116,7 +116,7 @@ jQuery('#userEmail').on('input propertychange paste', function() {
             domuseremailimg.attr("src", "/static/assets/img/iyes.png");
             document.getElementById("registersubmit").disabled = false;
         } else {
-            domuseremailspan.text("사용중인 닉네임");
+            domuseremailspan.text("사용중인 이메일");
             domuseremailspan.css('color', 'red');
             domuseremailimg.attr("src", "/static/assets/img/ino.png");
             document.getElementById("registersubmit").disabled = true;

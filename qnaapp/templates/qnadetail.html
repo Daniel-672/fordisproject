@@ -89,14 +89,6 @@ $( function() {
         $(this).closest('div').find('.content').not(':animated').slideToggle();
     });
 
-    <!-- render는 javascript로 처리 -->
-
-    $(document).ready(function () {
-    $('html, body').animate({
-    scrollTop: $('#board').offset().top
-    }, 'slow');
-    });
-
 {% endblock %}
 
 

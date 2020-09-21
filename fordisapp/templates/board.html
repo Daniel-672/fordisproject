@@ -12,7 +12,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">검색하기</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button> 
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <p>검색어를 입력해 주세요</p>
@@ -67,7 +67,7 @@
     {% endif %}
 </h6>
 
-    <div style="margin-top:20px;">
+    <div>
         <div id="searchdiv" style=" display: inline-block">
             <select name="searchtype">
                 <option value="search1">별명</option>
@@ -76,7 +76,7 @@
             <input type="text" name="keyword" required>
             <button class="btn btn-primary" onclick="processSearch() ">검색</button>
         </div>
-        <div  style="float:right; display: inline-block"><a href="{% url 'create' 'B' %}"><img style="float:left; " width="22" src="/static/assets/img/boardwrite2.png" ><h4 style="float:right; margin-right:10px">글쓰기</h4></a></div>
+        <div style="float:right; display: inline-block"><a href="{% url 'create' 'B' %}"><img style="float:left; " width="22" src="/static/assets/img/boardwrite2.png" ><h4 style="float:right; margin-right:10px">글쓰기</h4></a></div>
      </div>
 
 </div>

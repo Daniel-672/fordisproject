@@ -5,7 +5,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
 {% if loginyn  %}
-                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'logout' %}#board">logout</a>
+                <a class="navbar-brand js-scroll-trigger-left" href="{% url 'logout' %}">logout</a>
                 <img class="image_section" width="50" src="{{ photopath }}" alt="" />Hi {{nickname}}
 {% else %}
                 <a class="navbar-brand js-scroll-trigger-left" href="{% url 'login' %}#board">login</a>
@@ -86,7 +86,7 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-right">
-                                    <h4 class="text-white"><a href="{% url 'mapping' %}#board">시설</a></h4>
+                                    <h4 class="text-white"><a href="{% url 'mapping' %}">시설</a></h4>
                                     <p class="mb-0 text-white-50">장애인을 위한 시설 위치를 쉽게 확인 할 수 있습니다.</p>
                                     <hr class="d-none d-lg-block mb-0 mr-0" />
                                 </div>
@@ -107,7 +107,7 @@
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-left">
-                                    <h4 class="text-white"><a href="{% url 'mymap' %}#board">편의</a></h4>
+                                    <h4 class="text-white"><a href="{% url 'mymap' %}#mytitle">편의</a></h4>
                                     <p class="mb-0 text-white-50">장애인을 위한 화장실, 휠체어 충전소 위치를 쉽게 확인 할 수 있습니다.</p>
                                     <hr class="d-none d-lg-block mb-0 ml-0" />
                                 </div>
@@ -193,7 +193,7 @@
                                 <i class="fas fa-envelope text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50"><a href="#!">unicodaumx@hanmail.net</a></div>
+                                <div class="small text-black-50"><a href="mailto:unicodaumx@hanmail.net">unicodaumx@hanmail.net</a></div>
                             </div>
                         </div>
                     </div>
@@ -203,7 +203,7 @@
                                 <i class="fas fa-mobile-alt text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Phone</h4>
                                 <hr class="my-4" />
-                                <div class="small text-black-50">1544-9001</div>
+                                <div class="small text-black-50"><a href="tel:15449001">1544-9001</a></div>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,22 @@
 {% extends 'base2.html' %}
 {% block css %}
+        .masthead2 {
+          position: relative;
+          width: 100%;
+          height: 10px;
+          min-height: 35rem;
+          padding: 15rem 0;
+{% if btype == 'R' %}
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/static/assets/img/carpark.jpg");
+{% else %}
+          background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%), url("/static/assets/img/demo-image-01.jpg");
+{% endif %}
 
+          background-position: center;
+          background-repeat: no-repeat;
+          background-attachment: scroll;
+          background-size: cover;
+        }
 {% endblock %}
 {% block content %}
 <!-- Board -->
@@ -28,7 +44,7 @@
 
     <div class="form-group">
         <label for="content">불법 주차 위반 차량 위치</label> <button class="btn btn-primary" type="button" onclick="callposi()">주소가져오기</button>
-<!--        <h5 id="target">location</h5>-->
+        <p id="target">location</p>
         <input  class="form-control" type="hidden" id="reportlati"  name="reportlati" >
         <input  class="form-control" type="hidden" id="reportlong"  name="reportlong" >
 
@@ -115,3 +131,5 @@ function callposi(){
 
 }
 {% endblock %}
+
+

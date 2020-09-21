@@ -20,7 +20,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-12">
-            <form method="POST" action="{% url 'login'%}#board">
+            <form method="POST" action="{% url 'login'%}">
               {% csrf_token %}
               <div class="form-group">
                   <label for="userEmail">사용자 아이디</label>

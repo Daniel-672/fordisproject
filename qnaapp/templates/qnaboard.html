@@ -36,7 +36,7 @@
                 <span class="badge badge-success">완료</span>
                 {% endif %}
             </td>
-            <td><a href="{% url 'qnadetail' qnaboard.pk %}">{{ qnaboard.title }}</a></td>
+            <td><a href="{% url 'qnadetail' qnaboard.pk %}#board">{{ qnaboard.title }}</a></td>
             <td>{{qnaboard.qnawriter.nickName}}님</td>
             <td>{{qnaboard.created_at}}</td>
           </tr>
